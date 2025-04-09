@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayur's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #2e3b55;
+      --secondary-color: #3c4f76;
+      --accent-color: #dce3f1;
+      --highlight-color: #90a7d1;
+      --button-color: #5c7cfa;
+      --text-light: #ffffff;
+      --text-dark: #1e1e1e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      line-height: 1.6;
+      background: url('https://wallpaperaccess.com/full/5652030.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-light);
+    }
+
+    header {
+      background-color: rgba(60, 79, 118, 0.85);
+      color: var(--text-light);
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--button-color);
+      position: relative;
+    }
+
+    .logo::after {
+      content: ' Creative Coder';
+      color: var(--text-light);
+      font-weight: 400;
+      font-size: 1rem;
+      margin-left: 8px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links li a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .nav-links li a:hover {
+      color: var(--button-color);
+    }
+
+    .home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: url('https://wallpaperaccess.com/full/5652030.jpg') no-repeat center center/cover;
+      color: var(--text-light);
+      min-height: calc(100vh - 80px);
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .home-content h1,
+    .home-content h2,
+    .home-content button {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 1s ease forwards;
+    }
+
+    .home-content h1 {
+      animation-delay: 0.2s;
+    }
+
+    .home-content h2 {
+      animation-delay: 0.4s;
+    }
+
+    .home-content button {
+      animation-delay: 0.6s;
+    }
+
+    .home-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: var(--highlight-color);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .home-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .home-content button {
+      padding: 0.7rem 1.5rem;
+      background-color: var(--button-color);
+      color: var(--text-light);
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .home-content button:hover {
+      background-color: #405ab9;
+      transform: scale(1.05);
+    }
+
+    .home-content button:active {
+      transform: scale(0.98);
+    }
+
+    section {
+      padding: 2rem;
+      background-color: rgba(60, 79, 118, 0.85);
+      margin: 1rem auto;
+      max-width: 1000px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      color: var(--accent-color);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    section:not(.hidden) {
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      color: var(--highlight-color);
+      font-weight: 700;
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+    }
+
+    footer {
+      background-color: rgba(46, 59, 85, 0.95);
+      color: var(--text-light);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    footer:not(.hidden) {
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Mayur</div>
+      <ul class="nav-links">
+        <li><a href="#" onclick="navigateTo('home')">Home</a></li>
+        <li><a href="#" onclick="navigateTo('about')">About Me</a></li>
+        <li><a href="#" onclick="navigateTo('projects')">Projects</a></li>
+        <li><a href="#" onclick="navigateTo('education')">Education</a></li>
+        <li><a href="#" onclick="navigateTo('skills')">Skills</a></li>
+        <li><a href="#" onclick="navigateTo('contact')">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="home">
+    <div class="home-content">
+      <h1>Hi, My Name Is Mayur</h1>
+      <h2>I Am A Web Developer</h2>
+      <button id="portfolioBtn">View My Portfolio</button>
+    </div>
+  </section>
+
+  <section id="about" class="hidden">
+    <h2>About Me</h2>
+    <p>I am a passionate web developer eager to build beautiful and functional websites. I love learning new technologies and creating user-friendly designs.</p>
+  </section>
+
+  <section id="projects" class="hidden">
+    <h2>Projects</h2>
+    <ul>
+      <li>Project 1 - Portfolio Website</li>
+      <li>Project 2 - To-do App</li>
+      <li>Project 3 - Weather App</li>
+    </ul>
+  </section>
+
+  <section id="education" class="hidden">
+    <h2>Education</h2>
+    <p><strong>BCA (Bachelor of Computer Applications)</strong> - Ongoing, 3rd Year<br>
+      Tilak Maharashtra University, Pune
+    </p>
+    <p><strong>12th (HSC)</strong> - Passed in 2021 with 79.50%</p>
+  </section>
+
+  <section id="skills" class="hidden">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React (beginner)</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="hidden">
+    <h2>Contact Me</h2>
+    <p>Mobile: 9158488161</p>
+    <p>Email: <a href="mailto:mayurpatil3780@gmail.com" style="color: var(--button-color); text-decoration: underline;">mayurpatil3780@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/Mayur-Vilas-Patil" target="_blank" style="color: var(--button-color); text-decoration: underline;">linkedin.com/in/mayur</a></p>
+  </section>
+
+  <footer class="hidden">
+    <p>&copy; 2025 Mayur. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const sections = ['home', 'about', 'projects', 'education', 'skills', 'contact'];
+
+    function navigateTo(sectionId) {
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        section.classList.add('hidden');
+        section.style.opacity = 0;
+      });
+
+      document.querySelector('footer').classList.add('hidden');
+      document.querySelector('footer').style.opacity = 0;
+
+      const targetSection = document.getElementById(sectionId);
+      targetSection.classList.remove('hidden');
+      setTimeout(() => {
+        targetSection.style.opacity = 1;
+      }, 100);
+
+      if (sectionId !== 'home') {
+        const footer = document.querySelector('footer');
+        footer.classList.remove('hidden');
+        setTimeout(() => {
+          footer.style.opacity = 1;
+        }, 100);
+      }
+
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('portfolioBtn').addEventListener('click', function () {
+      sections.slice(1).forEach(id => {
+        const section = document.getElementById(id);
+        section.classList.remove('hidden');
+        setTimeout(() => {
+          section.style.opacity = 1;
+        }, 100);
+      });
+      document.querySelector('footer').classList.remove('hidden');
+      setTimeout(() => {
+        document.querySelector('footer').style.opacity = 1;
+      }, 100);
+      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+
+</html>
